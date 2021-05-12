@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 包含子模块 -->
+    <modules>
+        <module>cloud-eureka</module>
+        <module>cloud-common</module>
+        <module>cloud-model</module>
+        <module>microservice-job</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.cn</groupId>
+    <artifactId>spring-cloud-learn</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- maven分模块管理，都会有一个父级项目，pom文件一个重要的属性就是packaging（打包类型），
+    一般来说所有的父级项目的packaging都为pom，packaging默认类型jar类型，如果不做配置，maven会将该项目打成jar包。
+      name 建立子项目依赖的父项目名称-->
+    <!--pom工程：用在父级工程或聚合工程中。用来做jar包的版本控制
+        war工程：将会打包成war，发布在服务器上的工程。如网站或服务。
+        jar工程：将会打包成jar用作jar包使用-->
+    <packaging>pom</packaging>
+    <name>cloud-parent</name>
+    <description>MN Cloud Project</description>
+
+    <dependencies>
+        <!-- JSON转换 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <properties>
+        <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <fastjson.version>1.2.62</fastjson.version>
+        <mybatis-plus.version>2.3</mybatis-plus.version>
+        <mybatis-connector.version>8.0.19</mybatis-connector.version>
+        <alibaba-druid.version>1.1.10</alibaba-druid.version>
+        <lombok-version>1.18.4</lombok-version>
+    </properties>
+
+
+
+
+</project>

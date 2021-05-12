@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="3200" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-job-web" />
+        <module name="cloud-model" />
+        <module name="cloud-common" />
+        <module name="cloud-eureka" />
+        <module name="microservice-job-dao" />
+        <module name="microservice-job-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-common" options="-parameters" />
+      <module name="cloud-eureka" options="-parameters" />
+      <module name="cloud-model" options="-parameters" />
+      <module name="microservice-job" options="-parameters" />
+      <module name="microservice-job-dao" options="-parameters" />
+      <module name="microservice-job-service" options="-parameters" />
+      <module name="microservice-job-web" options="-parameters" />
+    </option>
+  </component>
+</project>
