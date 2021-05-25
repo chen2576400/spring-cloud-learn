@@ -1,0 +1,5 @@
+com\cn\mapper\UserMapper.class
+com\cn\mapper\CardMapper.class
+com\cn\model\UserVo.class
+com\cn\model\Card.class
+com\cn\model\User.class

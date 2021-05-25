@@ -10,10 +10,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-job-web" />
         <module name="cloud-model" />
+        <module name="microservice-base-service" />
         <module name="cloud-common" />
+        <module name="microservice-base-dao" />
         <module name="cloud-eureka" />
         <module name="microservice-job-dao" />
         <module name="microservice-job-service" />
+        <module name="microservice-base-web" />
       </profile>
     </annotationProcessing>
   </component>
@@ -22,6 +25,10 @@
       <module name="cloud-common" options="-parameters" />
       <module name="cloud-eureka" options="-parameters" />
       <module name="cloud-model" options="-parameters" />
+      <module name="microservice-base" options="-parameters" />
+      <module name="microservice-base-dao" options="-parameters" />
+      <module name="microservice-base-service" options="-parameters" />
+      <module name="microservice-base-web" options="-parameters" />
       <module name="microservice-job" options="-parameters" />
       <module name="microservice-job-dao" options="-parameters" />
       <module name="microservice-job-service" options="-parameters" />

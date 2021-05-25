@@ -4,6 +4,9 @@
     <file url="file://$PROJECT_DIR$/cloud-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-base/microservice-base-dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-base/microservice-base-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-base/microservice-base-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-job/microservice-job-dao/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-job/microservice-job-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-job/microservice-job-web/src/main/java" charset="UTF-8" />
