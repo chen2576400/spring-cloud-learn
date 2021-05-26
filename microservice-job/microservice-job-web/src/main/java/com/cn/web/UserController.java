@@ -6,6 +6,7 @@ import com.cn.model.User;
 import com.cn.model.UserVo;
 import com.cn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +25,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+    @Value("${server.port}")
+    String port;
+
+    @Value("${spring.application.name}")
+    String serviceName;
+
+
     @Autowired
     private UserService userService;
 
 
     @RequestMapping("/findAllUser")
     public List<User> userList() {
+        System.out.println("I'm form service:"+serviceName+",port:"+port);
         return userService.findAllUser();
     }
 

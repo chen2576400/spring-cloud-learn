@@ -18,16 +18,6 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
-    
-logging:
-  level:
-    org:
-      hibernate:
-        type:
-          descriptor:
-            sql:
-              BasicBinder=trace:
-
 
 
 eureka:
@@ -44,6 +34,10 @@ eureka:
 ribbon:
   ReadTimeout: 15000  #建立连接超时时间
   ConnectTimeout: 15000  #读取资源超时间
+
+feign:
+  hystrix:
+    enabled: true
 
 
 hystrix:

@@ -1,5 +1,5 @@
 server:
-  port: 8082  #配置服务端口
+  port: 8085  #配置服务端口
 spring:
   profiles:
     active: dao,souce;
@@ -39,7 +39,7 @@ hystrix:
         isolation:
           strategy: SEMAPHORE
           thread:
-            timeoutInMilliseconds:  15000
+            timeoutInMilliseconds:  15000  #熔断器响应超时时间
 
 management:
   endpoint:

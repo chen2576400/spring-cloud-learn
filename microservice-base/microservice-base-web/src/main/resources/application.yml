@@ -31,9 +31,11 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port} #注册中心列表中显示的状态参数
 
 
-ribbon:
-  ReadTimeout: 15000  #建立连接超时时间
-  ConnectTimeout: 15000  #读取资源超时间
+#打开fegin对hystrix的依赖 否则熔断器不生效
+feign:
+  hystrix:
+    enabled: true
+
 
 
 hystrix:
@@ -43,4 +45,8 @@ hystrix:
         isolation:
           strategy: SEMAPHORE
           thread:
-            timeoutInMilliseconds:  15000
+            timeoutInMilliseconds:  15000  #熔断器响应超时时间
+
+ribbon:
+  ReadTimeout: 15000  #建立连接超时时间
+  ConnectTimeout: 15000  #读取资源超时间

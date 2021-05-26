@@ -1,5 +1,5 @@
 server:
-  port: 8082  #配置服务端口
+  port: 8085  #配置服务端口
 spring:
   profiles:
     active: dao,souce;
@@ -27,7 +27,7 @@ eureka:
     prefer-ip-address: true #使用ip地址注册到注册中心
     instance-id: ${spring.cloud.client.ip-address}:${server.port} #注册中心列表中显示的状态参数
 
-
+#默认就会负载均衡  假如两个服务一起部署启动  服务名称一样 请求会转发不同服务器
 ribbon:
   ReadTimeout: 15000  #建立连接超时时间
   ConnectTimeout: 15000  #读取资源超时间
@@ -39,7 +39,7 @@ hystrix:
         isolation:
           strategy: SEMAPHORE
           thread:
-            timeoutInMilliseconds:  15000
+            timeoutInMilliseconds:  15000  #熔断器响应超时时间
 
 management:
   endpoint:
