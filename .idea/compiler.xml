@@ -10,13 +10,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-job-web" />
         <module name="cloud-model" />
-        <module name="microservice-base-service" />
         <module name="cloud-common" />
-        <module name="microservice-base-dao" />
+        <module name="microservice-base-service" />
         <module name="cloud-eureka" />
         <module name="microservice-job-dao" />
         <module name="microservice-job-service" />
         <module name="microservice-base-web" />
+        <module name="microservice-base-dao" />
       </profile>
     </annotationProcessing>
   </component>
