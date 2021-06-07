@@ -1,5 +1,5 @@
 server:
-  port: 8082  #配置服务端口
+  port: 8084  #配置服务端口
 spring:
   profiles:
     active: dao,souce;
