@@ -10,9 +10,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
 @SpringBootApplication
-@EnableHystrix
-@EnableEurekaClient
-@EnableFeignClients
+@EnableHystrix  /** @EnableHystrix或者@EnableCircuitBreaker-开启熔断器**/
+@EnableEurekaClient  /** 它们都能够让注册中心发现，并扫描到该服务 **/
+@EnableFeignClients   /**如果不写包名默认找启动类包下面的feignClient 供模块调用*/
 public class BaseWebApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(BaseWebApplication.class, args);

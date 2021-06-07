@@ -10,6 +10,7 @@
         <module>cloud-model</module>
         <module>microservice-job</module>
         <module>microservice-base</module>
+        <module>cloud-gateway</module>
     </modules>
 
     <parent>

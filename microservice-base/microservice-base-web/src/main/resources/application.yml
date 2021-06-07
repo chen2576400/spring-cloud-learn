@@ -47,6 +47,7 @@ hystrix:
           thread:
             timeoutInMilliseconds:  15000  #熔断器响应超时时间
 
+#负载均衡 ribbon会默认负载均衡  假如同一个服务名字 多个端口部署   会自动分配调用哪个服务
 ribbon:
   ReadTimeout: 15000  #建立连接超时时间
   ConnectTimeout: 15000  #读取资源超时间
