@@ -36,6 +36,7 @@
         </dependencies>
 
 
+    <!-- 指定下载源和使用springCloud的版本-->
     <dependencyManagement>
         <dependencies>
             <dependency>
