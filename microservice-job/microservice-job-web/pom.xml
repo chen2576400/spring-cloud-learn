@@ -49,18 +49,18 @@
 
 
 
-    <!-- 会查找当前依赖下面的 相同groupId 下面 artifactId进行版本控制-->
-    <!-- 查的到的会以 dependencyManagement下面依赖版本为主-->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+<!--    &lt;!&ndash; 会查找当前依赖下面的 相同groupId 下面 artifactId进行版本控制&ndash;&gt;-->
+<!--    &lt;!&ndash; 查的到的会以 dependencyManagement下面依赖版本为主&ndash;&gt;-->
+<!--    <dependencyManagement>-->
+<!--        <dependencies>-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--                <version>${spring-cloud.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--        </dependencies>-->
+<!--    </dependencyManagement>-->
 
 </project>
