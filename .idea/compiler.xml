@@ -10,19 +10,26 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-job-web" />
         <module name="cloud-model" />
+        <module name="AliCloud-provider-payment2001" />
         <module name="cloud-common" />
+        <module name="AliCloud-eureka-server3000" />
         <module name="microservice-base-service" />
         <module name="cloud-eureka" />
         <module name="microservice-job-dao" />
         <module name="cloud-gateway" />
+        <module name="AliCloud-consumer-order2002" />
         <module name="microservice-job-service" />
         <module name="microservice-base-web" />
         <module name="microservice-base-dao" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AliCloud-consumer-order2002" options="-parameters" />
+      <module name="AliCloud-eureka-server3000" options="-parameters" />
+      <module name="AliCloud-provider-payment2001" options="-parameters" />
       <module name="cloud-common" options="-parameters" />
       <module name="cloud-eureka" options="-parameters" />
       <module name="cloud-gateway" options="-parameters" />

@@ -15,7 +15,7 @@
 
     <properties>
         <!-- 当有多个启动类时，可以指定某一个启动类 -->
-        <start-class>com.cn.BaseWebApplication</start-class>
+        <start-class>com.com.cn.BaseWebApplication</start-class>
     </properties>
 
 

@@ -20,7 +20,7 @@
     <url>http://www.example.com</url>
 
     <properties>
-        <start-class>com.cn.CloudEurekaApplication</start-class>
+        <start-class>com.com.cn.CloudEurekaApplication</start-class>
     </properties>
 
         <dependencies>
@@ -36,17 +36,6 @@
         </dependencies>
 
 
-    <!-- 指定下载源和使用springCloud的版本-->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
 </project>

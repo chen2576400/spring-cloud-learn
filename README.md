@@ -30,3 +30,35 @@ Nacos（推荐）
 ===============================================================================================
 
 
+
+
+
+
+
+====================================【Eureka】=================================================
+Server端
+1.x与2.x区别
+以前老版本（当前使用2018）
+        <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-eureka</artifactId>
+            </dependency>
+现在新版本（当前使用2020.2）
+        <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            </dependency>
+---------------------------------------------------------------------------------------------
+client端
+1.x与2.x区别
+以前老版本（当前使用2018）
+        <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-eureka</artifactId>
+            </dependency>
+现在新版本（当前使用2020.2）
+        <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            </dependency>
+===============================================================================================
