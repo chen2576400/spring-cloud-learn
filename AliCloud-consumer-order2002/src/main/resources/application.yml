@@ -23,7 +23,8 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:3000/eureka #填写注册中心服务器地址
+#     defaultZone: http://127.0.0.1:3000/eureka #填写注册中心服务器地址(单机版)
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3000.com:3000/eureka #填写注册中心服务器地址(集群版)
     register-with-eureka: true  #是否需要将自己注册到注册中心
     fetch-registry: true  #是否需要搜索服务信息
   instance:

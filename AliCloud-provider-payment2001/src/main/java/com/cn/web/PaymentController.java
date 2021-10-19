@@ -4,6 +4,7 @@ import com.cn.model.Payment;
 import com.cn.result.Result;
 import com.cn.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,9 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    @Value(value = "${server.port}")
+    private String serverPort;
+
     /**http://localhost:2001/payment/creat*/
     @PostMapping("creat")
     public Result create(Payment payment) {
@@ -29,6 +33,7 @@ public class PaymentController {
     /**http://localhost:2001/payment/get/1*/
     @GetMapping("get/{id}")
     public Result create(@PathVariable("id") Long id) {
+        System.out.println("我是负责响应的服务器"+serverPort);
         Payment payment = paymentService.getPaymentById(id);
         return Result.ok(payment);
     }

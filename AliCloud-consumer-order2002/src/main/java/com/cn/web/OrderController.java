@@ -47,7 +47,7 @@ public class OrderController {
     @GetMapping("get/{id}")
     public Result create(@PathVariable("id") Long id) {
         //拼接URL和参数
-        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://localhost:2001/payment/get/"+id);
+        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://ALICLOUD-PROVIDER-PAYMENT2001/payment/get/"+id);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         headers.add("Accept", MediaType.APPLICATION_JSON.toString());

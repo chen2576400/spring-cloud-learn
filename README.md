@@ -61,4 +61,15 @@ client端
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             </dependency>
+            
+Eureka 集群要修改host文件
+127.0.0.1 Eureka3000.com    分别对应两个Eureka的instance的hostname，
+127.0.0.1 Eureka3001.com      
+
+eureka3000.com 或者eureka3001.com 其实都相当于127.0.0.1
+集群配置完成后 http://eureka3000.com:3000/  能看到3000指向3001      
+            http://eureka3001.com:3001/  能看到3001指向3000  
+            
+注册到Eureka后 可以使用RestTemplate外加负载均衡@LoadBalanced
+采用注册服务名称来 调用服务而不再需要之前的 IP+端口号了
 ===============================================================================================
