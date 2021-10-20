@@ -19,46 +19,24 @@ import org.springframework.web.util.UriComponentsBuilder;
  * @Description
  */
 @RestController
-@RequestMapping("consumer")
+@RequestMapping("zk")
 public class OrderController {
 
     @Autowired
     private RestTemplate restTemplate;
 
 
-    /**http://localhost:2002/consumer/creat?serialNumber=123231*/
-    @GetMapping("creat")
-    public Result create(Payment payment) {
+    /**http://localhost:4002/zk/getMsg*/
+    @GetMapping("getMsg")
+    public Result getZookeeperMsg() {
         //拼接URL和参数
-        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://localhost:2001/payment/creat")
-                .queryParam("serialNumber",payment.getSerialNumber());
+        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://AliCloud-provider-payment4001/zk/payment");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         headers.add("Accept", MediaType.APPLICATION_JSON.toString());
         //直接返回list对象
         ParameterizedTypeReference<Result> responseType = new ParameterizedTypeReference<Result>() {
         };
-        //HttpEntity<String> httpEntity = new HttpEntity(JSON.toJSONString(payment), headers);
-        ResponseEntity<Result> exchange = restTemplate.exchange(httpUrl.toUriString(), HttpMethod.POST, new HttpEntity(headers), responseType);
-        Result body = exchange.getBody();
-        System.out.println(body);
-        return body;
-    }
-
-
-
-    /**http://localhost:2002/consumer/get/3*/
-    @GetMapping("get/{id}")
-    public Result create(@PathVariable("id") Long id) {
-        //拼接URL和参数
-        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://ALICLOUD-PROVIDER-PAYMENT2001/payment/get/"+id);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        headers.add("Accept", MediaType.APPLICATION_JSON.toString());
-        //直接返回list对象
-        ParameterizedTypeReference<Result> responseType = new ParameterizedTypeReference<Result>() {
-        };
-        //HttpEntity<String> httpEntity = new HttpEntity(JSON.toJSONString(payment), headers);
         ResponseEntity<Result> exchange = restTemplate.exchange(httpUrl.toUriString(), HttpMethod.GET, new HttpEntity(headers), responseType);
         Result body = exchange.getBody();
         System.out.println(body);
