@@ -62,7 +62,8 @@ client端
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             </dependency>
             
-Eureka 集群要修改host文件
+Eureka 集群 （这里采用的3000和3001）
+要修改host文件
 127.0.0.1 Eureka3000.com    分别对应两个Eureka的instance的hostname，
 127.0.0.1 Eureka3001.com      
 
@@ -73,3 +74,15 @@ eureka3000.com 或者eureka3001.com 其实都相当于127.0.0.1
 注册到Eureka后 可以使用RestTemplate外加负载均衡@LoadBalanced
 采用注册服务名称来 调用服务而不再需要之前的 IP+端口号了
 ===============================================================================================
+
+
+
+====================================【zookeeper】=================================================
+Server端：去网上下载tar.gz  
+1:conf目录下  修改zoo_sample.cfg重命名为zoo.cfg
+2：在根目录下新件一个data  和log空目录
+3:dataDir=/tmp/zookeeper修改成zookeeper安装目录所在的data文件夹(dataDir=D:\\work\\zookeeper\\apache-zookeeper-3.5.9\\data)
+再加上日志输出目录dataLogDir=D:\\work\\zookeeper\\apache-zookeeper-3.5.9\\log
+
+在引入zookeeper依赖时候  要和自己下载的版本一致,否则无法启动（一般先排除其他版本在依赖自己的版本）
+====================================【zookeeper】=================================================

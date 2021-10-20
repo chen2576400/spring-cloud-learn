@@ -15,7 +15,7 @@
 
     <properties>
         <!-- 当有多个启动类时，可以指定某一个启动类 -->
-        <start-class>com.com.cn.JobWebApplication</start-class>
+        <start-class>com.cn.JobWebApplication</start-class>
     </properties>
 
     <dependencies>
@@ -47,20 +47,23 @@
         </dependency>
     </dependencies>
 
-
-
-<!--    &lt;!&ndash; 会查找当前依赖下面的 相同groupId 下面 artifactId进行版本控制&ndash;&gt;-->
-<!--    &lt;!&ndash; 查的到的会以 dependencyManagement下面依赖版本为主&ndash;&gt;-->
-<!--    <dependencyManagement>-->
-<!--        <dependencies>-->
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
-<!--                <version>${spring-cloud.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
-<!--        </dependencies>-->
-<!--    </dependencyManagement>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.cn.JobWebApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

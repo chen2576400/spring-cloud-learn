@@ -3,10 +3,10 @@
 <mapper namespace="com.com.cn.mapper.UserMapper">
 
 
-    <resultMap id="userMap" type="com.com.cn.model.UserVo">
+    <resultMap id="userMap" type="com.cn.model.UserVo">
         <result column="user_name" property="userName"></result>
         <result column="address" property="address"></result>
-        <collection property="cards" ofType="com.com.cn.model.Card">
+        <collection property="cards" ofType="com.cn.model.Card">
             <id column="id" property="id"/>
             <result column="user_id" property="userId"/>
             <result column="card_number" property="cardNumber"/>

@@ -15,6 +15,8 @@
         <module>AliCloud-consumer-order2002</module>
         <module>AliCloud-eureka-server3000</module>
         <module>AliCloud-eureka-server3001</module>
+        <module>AliCloud-provider-payment4001</module>
+        <module>AliCloud-consumer-order4002</module>
     </modules>
 
     <parent>
