@@ -17,6 +17,8 @@
         <module>AliCloud-eureka-server3001</module>
         <module>AliCloud-provider-payment4001</module>
         <module>AliCloud-consumer-order4002</module>
+        <module>AliCloud-opengin-provider-payment5001</module>
+        <module>AliCloud-opengin-consumer-order5002</module>
     </modules>
 
     <parent>

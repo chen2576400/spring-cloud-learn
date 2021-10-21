@@ -45,4 +45,12 @@ public class PaymentController {
         List<Payment> paymentList = paymentService.getPaymentList();
         return Result.ok(paymentList);
     }
+
+
+    @GetMapping("lb")
+    public Result getLb() {
+        return Result.ok(serverPort);
+    }
+
+
 }
