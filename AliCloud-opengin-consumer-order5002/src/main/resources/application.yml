@@ -16,10 +16,21 @@ eureka:
     prefer-ip-address: true #使用ip地址注册到注册中心
     instance-id: ${spring.cloud.client.ip-address}:${server.port} #注册中心列表中显示的状态参数
 
-#负载均衡 ribbon会默认负载均衡  假如同一个服务名字 多个端口部署   会自动分配调用哪个服务  不设置的话默认openFegin超时时间是1s
+#负载均衡 ribbon会默认负载均衡  假如同一个服务名字 多个端口部署   会自动分配调用哪个服务  不设置的话默认openFegin超时时间是1s  这个没提示。。。。
 ribbon:
   ReadTimeout: 15000  #建立连接超时时间
   ConnectTimeout: 15000  #读取资源超时间
+
+
+
+
+#将feign的接口信息请求打印
+logging:
+  level:
+  #Feign日志以什么级别监控哪个接口 (填写FeignService路径)
+    com.cn.service.PaymentFeignService: debug
+
+
 
 
 
