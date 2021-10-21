@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author nchen
@@ -53,4 +54,14 @@ public class PaymentController {
     }
 
 
+
+    @RequestMapping("paymentFeginTimeout")
+    public Result  paymentFeginTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return Result.ok("我已经设置了延迟5S，端口:"+serverPort);
+    }
 }
