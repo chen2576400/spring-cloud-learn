@@ -19,9 +19,8 @@ spring:
 #            - Path=/payment/ok/**   #断言,路径相匹配的进行路由
 #        # 上面表示 如果要访问http://localhost:5001/payment/ok/** 需要
 #        # http://localhost:9527/payment/ok/**
-#
-        - id: ALICLOUD-OPENGIN-CONSUMER-ORDER5002
-          uri: lb://ALICLOUD-OPENGIN-CONSUMER-ORDER5002
+        - id: ALICLOUD-OPENGIN-CONSUMER-ORDER5002  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://ALICLOUD-OPENGIN-CONSUMER-ORDER5002     #真实调用地址      lb为负载均衡
           predicates:
             - Path=/consumer/**   #断言,路径相匹配的进行路由  (这里不能直接/**，最好加上controller一级名称 否则路由不知道哪个服务controller 否则可能会出现默认多个路由只生效一个)
 
@@ -30,9 +29,12 @@ spring:
           uri: lb://ALICLOUD-HYSTRIX-PROVIDER-PAYMENT5001	 # lb 为负载均衡
           predicates:
             - Path=/payment/**   #断言,路径相匹配的进行路由  (这里不能直接/**，最好加上controller一级名称 否则路由不知道哪个服务controller 否则可能会出现多个路由只生效一个)
-
-
-
+            #- After=2020-03-08T10:59:34.102+08:00[Asia/Shanghai]
+            #- Cookie=username,zhangshuai #并且Cookie是username=zhangshuai才能访问
+            #- Header=X-Request-Id, \d+ #请求头中要有X-Request-Id属性并且值为整数的正则表达式
+            #- Host=**.atguigu.com
+            #- Method=GET
+            #- Query=username, \d+ #要有参数名称并且是正整数才能路由
 
 eureka:
   client:
