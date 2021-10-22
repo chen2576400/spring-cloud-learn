@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: AliCloud-provider-payment4001 #服务名称-服务之间使用名称进行通讯
+    name: springcloud-provider-payment4001 #服务名称-服务之间使用名称进行通讯
     # 数据库访问配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

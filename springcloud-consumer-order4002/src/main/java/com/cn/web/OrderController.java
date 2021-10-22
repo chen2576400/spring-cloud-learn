@@ -30,7 +30,7 @@ public class OrderController {
     @GetMapping("getMsg")
     public Result getZookeeperMsg() {
         //拼接URL和参数
-        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://AliCloud-provider-payment4001/zk/payment");
+        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://springcloud-provider-payment4001/zk/payment");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         headers.add("Accept", MediaType.APPLICATION_JSON.toString());

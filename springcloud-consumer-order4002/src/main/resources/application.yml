@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: AliCloud-consumer-order4002 #服务名称-服务之间使用名称进行通讯
+    name: springcloud-consumer-order4002 #服务名称-服务之间使用名称进行通讯
   cloud:
     zookeeper:
       connect-string: 127.0.0.1:2181

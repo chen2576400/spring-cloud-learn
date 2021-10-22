@@ -20,9 +20,9 @@ public class PaymentController {
 
 
 
-    /**http://localhost:4000/zk/payment*/
+    /**http://localhost:4001/zk/payment*/
     @RequestMapping("payment")
     public Result zk(){
-        return Result.ok("spring cloud with zookeeper"+serverPort + UUID.randomUUID().toString());
+        return Result.ok("spring cloud with zookeeper"+"端口:"+serverPort +"======="+UUID.randomUUID().toString());
     }
 }
