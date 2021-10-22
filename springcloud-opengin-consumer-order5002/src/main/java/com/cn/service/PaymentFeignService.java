@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
 这个value值要和yml里面的name一样，区分大小写
 */
-@FeignClient(value = "AliCloud-provider-payment2001",path ="/payment")
+@FeignClient(value = "SPRINGCLOUD-PROVIDER-PAYMENT2001",path ="/payment")
 public interface PaymentFeignService {
     @GetMapping("get/{id}")
      Result getResult(@PathVariable("id") Long id);

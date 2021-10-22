@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: AliCloud-hystrix-provider-payment5001 #服务名称-服务之间使用名称进行通讯
+    name: springcloud-hystrix-provider-payment5001 #服务名称-服务之间使用名称进行通讯
 
 eureka:
   client:

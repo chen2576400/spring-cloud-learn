@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>AliCloud-opengin-consumer-order5002</artifactId>
+    <artifactId>springcloud-opengin-consumer-order5002</artifactId>
 
     <dependencies>
         <dependency>

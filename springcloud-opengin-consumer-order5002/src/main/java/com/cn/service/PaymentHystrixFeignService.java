@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Version 1.0
  * @Description
  */
-@FeignClient(value = "AliCloud-hystrix-provider-payment5001",path ="/payment",fallback =PaymentHystrixFeignFallbackServiceImpl.class)
+@FeignClient(value = "SPRINGCLOUD-HYSTRIX-PROVIDER-PAYMENT5001",path ="/payment",fallback =PaymentHystrixFeignFallbackServiceImpl.class)
 public interface PaymentHystrixFeignService {
 
     @RequestMapping("ok/{id}")

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: AliCloud-opengin-consumer-order5002 #服务名称-服务之间使用名称进行通讯
+    name: springcloud-opengin-consumer-order5002 #服务名称-服务之间使用名称进行通讯
 
 eureka:
   client:
@@ -18,8 +18,8 @@ eureka:
 
 #负载均衡 ribbon会默认负载均衡  假如同一个服务名字 多个端口部署   会自动分配调用哪个服务  不设置的话默认openFegin超时时间是1s  这个没提示。。。。
 ribbon:
-  ReadTimeout: 6000  #建立连接超时时间
-  ConnectTimeout: 6000  #读取资源超时间
+  ReadTimeout: 7000  #建立连接超时时间
+  ConnectTimeout: 7000  #读取资源超时间
 
 
 #将feign的接口信息请求打印

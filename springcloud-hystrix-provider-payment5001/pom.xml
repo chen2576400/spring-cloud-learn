@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>AliCloud-hystrix-provider-payment5001</artifactId>
+    <artifactId>springcloud-hystrix-provider-payment5001</artifactId>
 
     <dependencies>
 
