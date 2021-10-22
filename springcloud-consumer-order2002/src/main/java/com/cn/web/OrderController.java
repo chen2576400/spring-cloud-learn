@@ -37,7 +37,7 @@ public class OrderController {
 
     /**
      * http://localhost:2002/consumer/creat?serialNumber=123231
-     * HTTP地址调用
+     * HTTP地址调用  加上@LoadBalanced的restTemplate不能采用ip去调用 要采用服务名称
      *
      */
     @GetMapping("creat")
@@ -67,7 +67,7 @@ public class OrderController {
     @GetMapping("get/{id}")
     public Result create(@PathVariable("id") Long id) {
         //拼接URL和参数
-        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://ALICLOUD-PROVIDER-PAYMENT2001/payment/get/"+id);
+        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://SPRINGCLOUD-PROVIDER-PAYMENT2001/payment/get/"+id);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         headers.add("Accept", MediaType.APPLICATION_JSON.toString());
@@ -89,7 +89,7 @@ public class OrderController {
     @GetMapping("lb")
     public Result create() {
         //拼接URL和参数
-        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://ALICLOUD-PROVIDER-PAYMENT2001/payment/lb");
+        UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl("http://SPRINGCLOUD-PROVIDER-PAYMENT2001/payment/lb");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         headers.add("Accept", MediaType.APPLICATION_JSON.toString());
@@ -106,14 +106,12 @@ public class OrderController {
 
     /**http://localhost:2002/consumer/mylb
      * 服务名称调用
-     *
      *自定义负载均衡  调用时候记得屏蔽ContextConfiguration里面的restTemplate的@LoadBalanced注解
      */
-
     @GetMapping("mylb")
     public Result mylb() {
 
-        List<ServiceInstance> discoveryClientInstances = discoveryClient.getInstances("AliCloud-provider-payment2001");
+        List<ServiceInstance> discoveryClientInstances = discoveryClient.getInstances("SPRINGCLOUD-PROVIDER-PAYMENT2001");
         if (CollectionUtils.isEmpty(discoveryClientInstances)){
             return Result.error("注册中心没找到该服务");
         }

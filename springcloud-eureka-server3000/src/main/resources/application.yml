@@ -1,9 +1,9 @@
 server:
-  port: 3001  #配置服务端口
+  port: 3000  #配置服务端口
 
 spring:
   application:
-    name: AliCloud-eureka-server3000  #服务名称 - 服务之间使用名称进行通讯
+    name: springcloud-eureka-server3000  #服务名称 - 服务之间使用名称进行通讯
 
 #单机
 #eureka:
@@ -15,15 +15,17 @@ spring:
 #    register-with-eureka: false  #是否需要将自己注册到注册中心
 #    fetch-registry: false  #是否需要搜索服务信息
 
+
 #集群(相互注册，相互守望)
 eureka:
   instance:
-    hostname:  Eureka3001.com  #eureka服务端实例名称
+    hostname:  Eureka3000.com  #eureka服务端实例名称
   client:
     service-url:
-      defaultZone: http://Eureka3000.com:3000/eureka #填写注册中心服务器地址
+      defaultZone: http://Eureka3001.com:3001/eureka #填写注册中心服务器地址
     register-with-eureka: false  #是否需要将自己注册到注册中心
     fetch-registry: false  #是否需要搜索服务信息
+
 
 
 
