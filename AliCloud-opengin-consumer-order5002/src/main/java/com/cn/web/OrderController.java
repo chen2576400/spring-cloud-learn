@@ -2,6 +2,7 @@ package com.cn.web;
 
 import com.cn.result.Result;
 import com.cn.service.PaymentFeignService;
+import com.cn.service.PaymentHystrixFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,12 @@ public class OrderController {
     private PaymentFeignService paymentFeginService;
 
 
+    @Autowired
+    private PaymentHystrixFeignService hystrixFeignService;
+
+
     /**
+     * 调用2001
      * http://localhost:5002/consumer/get/3
      */
     @GetMapping("get/{id}")
@@ -33,6 +39,7 @@ public class OrderController {
     }
 
     /**
+     * 调用2001
      * http://localhost:5002/consumer/feginTimeout
      */
     @RequestMapping("feginTimeout")
@@ -40,5 +47,25 @@ public class OrderController {
         Result result = paymentFeginService.paymentFeginTimeout();
         return result;
     }
+
+
+    /**
+     * 调用hystrix的5001
+     * http://localhost:5002/consumer/ok/1
+     */
+    @RequestMapping("ok/{id}")
+    public Result ok(@PathVariable("id") Integer id) {
+        return  hystrixFeignService.ok(id);
+    }
+
+    /**
+     * 调用hystrix的5001
+     * http://localhost:5002/consumer/timeout/1
+     */
+    @RequestMapping("timeout/{id}")
+    public Result timeout(@PathVariable("id") Integer id) {
+        return  hystrixFeignService.timeout(id);
+    }
+
 
 }

@@ -1,3 +1,5 @@
+笔记网站：https://www.yuque.com/books/share/31d864d1-b6ff-4bd1-8569-2dec720e8306/fncn1y
+
 【服务注册中心】:
 Eureka(现在停止更新)
 替代方案: Zookeeper  Consul  Nacos(推荐)

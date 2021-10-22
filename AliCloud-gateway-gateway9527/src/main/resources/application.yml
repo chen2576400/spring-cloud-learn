@@ -1,0 +1,52 @@
+server:
+  port: 9527  #配置服务端口
+
+spring:
+  application:
+    name: AliCloud-gateway-gateway9527 #服务名称-服务之间使用名称进行通讯
+
+  cloud:
+    gateway:
+      routes:
+#        - id: payment_routh1 #路由的ID，没有固定规则但要求唯一，建议配合服务名
+#          uri: http://localhost:5001   #匹配后提供服务的路由地址
+#          predicates:
+#            - Path=/payment/ok/**   #断言,路径相匹配的进行路由
+#        # 上面表示 如果要访问http://localhost:5001/payment/ok/** 需要
+#        # http://localhost:9527/payment/ok/**
+#
+        - id: payment_routh2
+          uri: lb://ALICLOUD-OPENGIN-CONSUMER-ORDER5002
+          predicates:
+            - Path=/**   #断言,路径相匹配的进行路由
+
+        - id: payment_routh3 #路由的ID，没有固定规则但要求唯一，建议配合服务名
+            # uri: http://localhost:5001   #匹配后提供服务的路由地址
+          uri: lb://ALICLOUD-HYSTRIX-PROVIDER-PAYMENT5001	 # lb 为负载均衡
+          predicates:
+            - Path= /**   #断言,路径相匹配的进行路由
+
+      discovery:
+        locator:
+          enabled: true   #开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          lower-case-service-id: true   # 允许为小写
+
+
+eureka:
+  client:
+    service-url:
+#     defaultZone: http://127.0.0.1:3000/eureka #填写注册中心服务器地址(单机版)
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3000.com:3000/eureka #填写注册中心服务器地址(集群版)
+    register-with-eureka: true  #是否需要将自己注册到注册中心
+    fetch-registry: true  #是否需要搜索服务信息
+  instance:
+    prefer-ip-address: true #使用ip地址注册到注册中心
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #注册中心列表中显示的状态参数
+
+
+
+
+
+
+
+

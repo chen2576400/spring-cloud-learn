@@ -18,6 +18,8 @@
         <module>AliCloud-provider-payment4001</module>
         <module>AliCloud-consumer-order4002</module>
         <module>AliCloud-opengin-consumer-order5002</module>
+        <module>AliCloud-hystrix-provider-payment5001</module>
+        <module>AliCloud-gateway-gateway9527</module>
     </modules>
 
     <parent>

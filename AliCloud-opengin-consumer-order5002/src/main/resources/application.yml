@@ -18,10 +18,8 @@ eureka:
 
 #负载均衡 ribbon会默认负载均衡  假如同一个服务名字 多个端口部署   会自动分配调用哪个服务  不设置的话默认openFegin超时时间是1s  这个没提示。。。。
 ribbon:
-  ReadTimeout: 15000  #建立连接超时时间
-  ConnectTimeout: 15000  #读取资源超时间
-
-
+  ReadTimeout: 6000  #建立连接超时时间
+  ConnectTimeout: 6000  #读取资源超时间
 
 
 #将feign的接口信息请求打印
@@ -31,7 +29,10 @@ logging:
     com.cn.service.PaymentFeignService: debug
 
 
-
+#打开fegin对hystrix的依赖 否则熔断器不生效
+feign:
+  hystrix:
+    enabled: true
 
 
 
