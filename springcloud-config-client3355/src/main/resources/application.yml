@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: AliCloud-config-client3355
+    name: springcloud-config-client3355
 
   #rabbitmq 相关配置
   rabbitmq:

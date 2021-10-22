@@ -11,17 +11,17 @@
         <module>microservice-job</module>
         <module>microservice-base</module>
         <module>cloud-gateway</module>
-        <module>AliCloud-provider-payment2001</module>
-        <module>AliCloud-consumer-order2002</module>
-        <module>AliCloud-eureka-server3000</module>
-        <module>AliCloud-eureka-server3001</module>
-        <module>AliCloud-provider-payment4001</module>
-        <module>AliCloud-consumer-order4002</module>
-        <module>AliCloud-opengin-consumer-order5002</module>
-        <module>AliCloud-hystrix-provider-payment5001</module>
-        <module>AliCloud-gateway-gateway9527</module>
-        <module>AliCloud-config-server3344</module>
-        <module>AliCloud-config-client3355</module>
+        <module>springcloud-provider-payment2001</module>
+        <module>springcloud-consumer-order2002</module>
+        <module>springcloud-eureka-server3000</module>
+        <module>springcloud-eureka-server3001</module>
+        <module>springcloud-provider-payment4001</module>
+        <module>springcloud-consumer-order4002</module>
+        <module>springcloud-opengin-consumer-order5002</module>
+        <module>springcloud-hystrix-provider-payment5001</module>
+        <module>springcloud-gateway-gateway9527</module>
+        <module>springcloud-config-server3344</module>
+        <module>springcloud-config-client3355</module>
     </modules>
 
     <parent>

@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: AliCloud-config-server3344 #服务名称-服务之间使用名称进行通讯
+    name: springcloud-config-server3344 #服务名称-服务之间使用名称进行通讯
     #cloud server  https://www.cnblogs.com/bugzeroman/p/13737744.html  配置文章
     ######################################配置中心######################################
   profiles:
@@ -14,7 +14,7 @@ spring:
     config:
       server:
         native:
-          search-locations: D:/owner/spring-cloud-learn/AliCloud-config-server3344/src/main/resources/static/config #本地文件访问路径 斜杠别反了
+          search-locations: D:/owner/spring-cloud-learn/springcloud-config-server3344/src/main/resources/static/config #本地文件访问路径 斜杠别反了
                              #classpath:/static/config
 #访问测试地址  http://localhost:3344/config-dev.yml   （config-prod.yml）  （config-test.yml）  如果出现配置文件信息则配置成功
 
