@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      #label: master # 哪个分支 (我这里是本地 不存在分支)
+      name: config   #文件前缀名称    config-dev.yml  的config
+      profile: dev  # 名字-xxx  什么环境   config-dev.yml  的dev
+      uri: http://localhost:3344  # 配置中心地址
+      # 上面的进行拼接后位: http://localhost:3344/master/config-dev.yaml
+
+

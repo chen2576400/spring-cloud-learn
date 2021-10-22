@@ -1,0 +1,27 @@
+server:
+  port: 3355  #配置服务端口
+
+spring:
+  application:
+    name: AliCloud-config-client3355
+
+  #rabbitmq 相关配置
+  rabbitmq:
+    host: 127.0.0.1
+    username: guest
+    password: guest
+    port: 5672
+
+#暴露bus刷新配置的断点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+eureka:
+  client:
+    service-url:
+      #     defaultZone: http://127.0.0.1:3000/eureka #填写注册中心服务器地址(单机版)
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3000.com:3000/eureka #填写注册中心服务器地址(集群版)
+

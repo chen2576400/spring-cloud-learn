@@ -1,0 +1,61 @@
+server:
+  port: 3344  #配置服务端口
+
+
+
+spring:
+  application:
+    name: AliCloud-config-server3344 #服务名称-服务之间使用名称进行通讯
+    #cloud server  https://www.cnblogs.com/bugzeroman/p/13737744.html  配置文章
+    ######################################配置中心######################################
+  profiles:
+    active: native #本地文件
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: D:/owner/spring-cloud-learn/AliCloud-config-server3344/src/main/resources/static/config #本地文件访问路径 斜杠别反了
+                             #classpath:/static/config
+#访问测试地址  http://localhost:3344/config-dev.yml   （config-prod.yml）  （config-test.yml）  如果出现配置文件信息则配置成功
+
+
+##########################################配置中心消息总线配置############################################
+#rabbitmq 相关配置
+  rabbitmq:
+    host: 127.0.0.1
+    username: guest
+    password: guest
+    port: 5672
+#暴露bus刷新配置的断点    手动刷新http://localhost:3344/actuator/bus-refresh 这样配置文件server就会同步到所有服务器
+                     # http://localhost:3344/actuator/bus-refresh/AliCloud-config-client3355 定点同步 只同步到3355服务器
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+##########################################配置中心消息总线配置############################################
+
+
+
+eureka:
+  client:
+    service-url:
+#     defaultZone: http://127.0.0.1:3000/eureka #填写注册中心服务器地址(单机版)
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3000.com:3000/eureka #填写注册中心服务器地址(集群版)
+
+    register-with-eureka: true  #是否需要将自己注册到注册中心
+    fetch-registry: true  #是否需要搜索服务信息
+  instance:
+    prefer-ip-address: true #使用ip地址注册到注册中心
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #注册中心列表中显示的状态参数
+
+
+
+
+
+
+
+
+
+
+
