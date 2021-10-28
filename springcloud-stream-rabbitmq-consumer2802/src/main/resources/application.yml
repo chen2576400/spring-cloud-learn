@@ -1,0 +1,40 @@
+server:
+  port: 2802
+spring:
+  application:
+    name: springcloud-stream-rabbitmq-consumer2802
+  cloud:
+      stream:
+        binders: #自此处配置要绑定的rabbitmq的服务信息
+          defaultRabbit: #表示定义的名称，用于binding整合
+            type: rabbit #消息组件类型
+            environment:  # 设置rabbitmq的相关的环境配置
+              spring:
+                rabbitmq:
+                  host: 127.0.0.1
+                  username: guest
+                  password: guest
+                  port: 5672
+        bindings: #服务的整合处理
+          input: #这个名字是一个通道的名称 （input说明是接收通道）
+            destination: studyExchange #表示要使用的exchange名称定义（启动后可以看到在mq视图中心）
+            content-type: application/json #设置消息类型，本次为json
+#            defaultBinder: defaultRabbit  #设置要绑定的消息服务的具体设置
+            Binder:
+              - ${spring.cloud.stream.binders.defaultRabbit} # 设置要绑定的消息服务的具体设置
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:3000/eureka #填写注册中心服务器地址
+  instance:
+    prefer-ip-address: true #使用ip地址注册到注册中心
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #注册中心列表中显示的状态参数
+    lease-expiration-duration-in-seconds: 5 #表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance。
+    lease-renewal-interval-in-seconds: 2 #设置心态时间间隔
+
+
+
+

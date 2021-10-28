@@ -17,6 +17,7 @@ public class SendMessageController {
     private IMessageProvider messageProvider;
 
 
+    /**http://localhost:2801/sendMessage*/
     @RequestMapping("/sendMessage")
     public  String sendMessage(){
         return  messageProvider.send();
