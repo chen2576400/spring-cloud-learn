@@ -22,7 +22,8 @@ spring:
 #            defaultBinder: defaultRabbit  #设置要绑定的消息服务的具体设置
             Binder:
               - ${spring.cloud.stream.binders.defaultRabbit} # 设置要绑定的消息服务的具体设置
-
+            group : cnmq1  #1:不设置group默认多个集群分配不同随机group 不同group重复消费  相同group负债均衡消费
+                           #2:设置自定义group 如果服务端发送了消息时客户端停止服务，只要保持group和之前服务端启动时候一致，服务一启动就能消费。如果注释group,自动分配的ID和之前不一致，不会消费
 
 
 eureka:
