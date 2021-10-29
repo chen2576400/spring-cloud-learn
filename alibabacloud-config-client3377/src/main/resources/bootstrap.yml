@@ -1,0 +1,29 @@
+#nacos config
+server:
+  port: 3377
+spring:
+  application:
+    name: alibabacloud-config-client3377
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848 #nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        namespace: 1611b746-f8a6-4280-b320-f83ba038815a #(命名空间ID)如果nacos没有新建自定义命名空间可以不用写   如果写了就会查找改该命名空间下面的配置文件
+        group: ONE_GROUP   #如果nacos没有新建默认为值为DEFAULT_GROUP可以不用写   如果写了就会查找改group下面的配置文件
+
+
+
+
+  #nacos配置文件格式 ${prefix}-${spring.profiles.active}.${file-extension}
+  #prefix   默认为 spring.application.name 的值，也可以通过配置项 spring.cloud.nacos.config.prefix来配置
+  #spring.profiles.active 即为当前环境对应的 profile    =>（spring.profiles.active=dev #表示开发环境）
+  #file-extension只支持 properties 和 yaml
+ # 当前环境配置文件示例： alibabacloud-config-client3377-dev.yaml   （这里配置中心名字记得后缀为yaml  不然可能无法识别启动报错）
+
+
+
+
+
