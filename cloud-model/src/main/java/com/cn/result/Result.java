@@ -43,6 +43,10 @@ public class Result<T> {
         return new Result<T>(true, 200, "success", content);
     }
 
+    public static <T> Result ok(T content,String message) {
+        return new Result<T>(true, 200, message, content);
+    }
+
     public static <T> Result error(String message) {
         return new Result<T>(false, 400, message);
     }
