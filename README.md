@@ -88,3 +88,43 @@ Server端：去网上下载tar.gz
 
 在引入zookeeper依赖时候  要和自己下载的版本一致,否则无法启动（一般先排除其他版本在依赖自己的版本）
 ====================================【zookeeper】=================================================
+
+
+
+====================================【nacos】=================================================
+Server端：去网上下载   启动分为集群版(需要建库)  和单机版
+nacos自带一个数据库 如果想换成本地mysql数据库 （mysql8+需要在nacos目录下面新建/plugins/mysql 把驱动jar放进去  貌似1.3+nacos支持了mysql8+）
+1：去nacos的conf目录找到 nacos-mysql.sql 执行sql
+2：然后修改conf目录下面 application.properties  增加
+spring.datasource.platform=mysql
+db.num=1
+db.url.0=jdbc:mysql://127.0.0.1:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+db.user=root
+db.password=123456
+windows启动 startup.cmd -m standalone
+
+
+
+
+nacos-conig 配置方案
+一：DataID方案
+采取的是默认空间+默认分组+    自定义yaml文件(${prefix}-${spring.profiles.active}.${file-extension})
+指定spring.profile.active和配置文件的DataID来使不同环境下读取不同的配置
+通过spring.profile.active属性就能进行多环境下的配置文件的读取。
+
+
+二：Group方案 （通过Group实现环境区分）
+采取的是默认空间+自定义分组+     自定义yaml文件(${prefix}-${spring.profiles.active}.${file-extension}) 
+nacos.config.group 属性绑定自定义分组名称
+通过spring.profile.active属性就能进行多环境下的配置文件的读取。
+
+三： Namespace方案 通过（Namespace方案实现环境区分）
+采取的是自定义空间+自定义分组+    自定义yaml文件(${prefix}-${spring.profiles.active}.${file-extension})
+====================================【nacos】=================================================
+
+
+
+
+
+
+

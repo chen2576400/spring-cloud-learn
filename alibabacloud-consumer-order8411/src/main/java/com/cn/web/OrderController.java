@@ -1,5 +1,8 @@
 package com.cn.web;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.cn.myhandler.CustomerBlockHandler;
+import com.cn.myhandler.CustomerFallbackHandler;
 import com.cn.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,8 +32,24 @@ public class OrderController {
 
 
     /**http://localhost:8411/order/fallback/1*/
+    /*fallback 属于降级  走降级时候依旧会执行方法*/
+    /*blockHandler 属于熔断   熔断时候方法都不会执行*/
+
     @RequestMapping("/fallback/{id}")
-    public  Result getPayment(@PathVariable("id") Integer id){
+    //region 不配置任何
+    //没有配置则会报错，不太友好
+    //@SentinelResource(value = "fallback")
+    //endregion
+    //region  只配置fallback
+    //fallback只负责业务异常
+    //@SentinelResource(value = "fallback",fallbackClass = CustomerFallbackHandler.class,fallback ="handleFallback1" )//没有配置则会报错，不太友好
+    //endregion
+    //region 只配置blockHandler
+    //blockHandler 只负责配置违规
+    //@SentinelResource(value = "fallback",
+    //        blockHandlerClass = CustomerBlockHandler.class,blockHandler ="handlerException1" )
+    //endregion
+    public  Result fallback(@PathVariable("id") Integer id){
         //拼接URL和参数
         UriComponentsBuilder httpUrl = UriComponentsBuilder.fromHttpUrl(serverUrl+"/payment/paymentSQL/"+id);
         HttpHeaders headers = new HttpHeaders();
@@ -40,9 +59,18 @@ public class OrderController {
         ResponseEntity<Result> exchange = restTemplate.exchange
                  (httpUrl.toUriString(), HttpMethod.GET, new HttpEntity(headers),  new ParameterizedTypeReference<Result>(){});
         Result body = exchange.getBody();
-        System.out.println(body);
-        return body;
+
+        if (id ==4){
+            throw  new IllegalArgumentException("IllegalArgumentException,非法参数异常");
+        }else if (body.getContent()==null){
+            throw  new NullPointerException("NullPointerException,该ID没有对应记录，空指针异常");
+        }
+        return  body;
 
     }
+
+
+
+
 
 }

@@ -24,6 +24,12 @@
         <module>springcloud-config-client3355</module>
         <module>springcloud-stream-rabbitmq-provider2801</module>
         <module>springcloud-stream-rabbitmq-consumer2802</module>
+        <module>alibabacloud-provider-payment9001</module>
+        <module>alibabacloud-consumer-order9801</module>
+        <module>alibabacloud-config-client3377</module>
+        <module>alibabacloud-sentinel-service8401</module>
+        <module>alibabacloud-consumer-order8411</module>
+        <module>alibabacloud-provider-payment8412</module>
     </modules>
 
     <parent>
