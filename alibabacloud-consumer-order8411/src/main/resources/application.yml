@@ -17,6 +17,17 @@ spring:
         #默认8719端口，假如被占用会从8719开始 依次+1扫描，知道找到未被占用端口。
         port: 8719
         client-ip: 127.0.0.1
+      datasource: #sentinel持久化配置
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: ${spring.application.name}
+            groupId: DEFAULT_GROUP
+            data_type: json
+            rule_type: flow
+
+
+
 
 
 #消费者将要去访问的微服务名称(这里是自己配的，只是为了后面方便作为参数使用)

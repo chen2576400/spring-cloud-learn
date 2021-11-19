@@ -34,6 +34,9 @@ public class PaymentController {
     /**http://localhost:8412/payment/paymentSQL/1*/
     @RequestMapping("/paymentSQL/{id}")
     public  Result getPayment(@PathVariable("id") Integer id){
+        if (id==4){
+            System.out.println(1/0);
+        }
         Payment payment = hashMap.get(id);
         return Result.ok(payment,"端口号为:"+serverPort);
     }

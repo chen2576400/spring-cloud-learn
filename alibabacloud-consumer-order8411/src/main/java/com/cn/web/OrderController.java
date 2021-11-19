@@ -93,7 +93,6 @@ public class OrderController {
      */
     @RequestMapping(value = "/paymentSQL/{id}")
     public Result getPayment(@PathVariable("id") Integer id) {
-
         return paymentService.getPayment(id);
     }
 
