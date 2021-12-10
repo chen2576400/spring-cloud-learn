@@ -31,7 +31,7 @@ logging:
 
 #打开fegin对hystrix的依赖 否则熔断器不生效
 feign:
-  hystrix:
+    hystrix:
     enabled: true
 
 
