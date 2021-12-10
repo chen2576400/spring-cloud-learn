@@ -30,6 +30,9 @@
         <module>alibabacloud-sentinel-service8401</module>
         <module>alibabacloud-consumer-order8411</module>
         <module>alibabacloud-provider-payment8412</module>
+        <module>alibabacloud-seata-order-service2001</module>
+        <module>alibabacloud-seata-storage-service2111</module>
+        <module>alibabacloud-seata-account-service2112</module>
     </modules>
 
     <parent>
@@ -97,6 +100,7 @@
                     <type>pom</type>
                     <scope>import</scope>
                 </dependency>
+
             </dependencies>
         </dependencyManagement>
 
